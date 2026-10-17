@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8c2f249370948f68e88e54ba23f1b2f" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_Stepanets_SalonBeautyModel.appointment" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Stepanets_SalonBeautyModel.master_service" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Stepanets_SalonBeautyModel.role" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Stepanets_SalonBeautyModel.service" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Stepanets_SalonBeautyModel.service_category" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Stepanets_SalonBeautyModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Stepanets_SalonBeautyModel.users" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="DB_Stepanets_SalonBeautyModel.FK__appointme__clien__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Stepanets_SalonBeautyModel.FK__appointme__maste__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Stepanets_SalonBeautyModel.FK__appointme__servi__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Stepanets_SalonBeautyModel.FK__master_se__maste__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Stepanets_SalonBeautyModel.FK__master_se__servi__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Stepanets_SalonBeautyModel.FK__users__roleId__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Stepanets_SalonBeautyModel.FK__service__categor__45F365D3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
