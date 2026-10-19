@@ -6,9 +6,46 @@
       xmlns:local="clr-namespace:UP01_Stepanets.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EditAppointmentPage">
+      Title="Редактирование записи">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+        <StackPanel>
+            <TextBlock Text="Редактирование записи" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <Label Content="Клиент:" Margin="0,0,0,5"/>
+            <TextBlock x:Name="TbClientName" FontSize="14" Margin="0,0,0,15"/>
+
+            <Label Content="Мастер:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="CbMaster" Margin="0,0,0,15" DisplayMemberPath="FIO" SelectedValuePath="ID" SelectionChanged="CbMaster_SelectionChanged"/>
+
+            <Label Content="Услуга:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="CbService" Margin="0,0,0,15" DisplayMemberPath="name" SelectedValuePath="ID"/>
+
+            <Label Content="Дата и время записи:" Margin="0,0,0,5"/>
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <DatePicker x:Name="DpDate" Grid.Column="1" ToolTip="Выберите дату записи"/>
+
+                <Label Content="Время:" Grid.Column="3" VerticalAlignment="Center"/>
+                <TextBox x:Name="TbTime" Grid.Column="4" ToolTip="Введите время в формате ЧЧ:мм" MaxLength="5" PreviewTextInput="TbTime_PreviewTextInput"/>
+            </Grid>
+
+            <Label Content="Статус записи:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="CbStatus" Margin="0,0,0,20">
+                <ComboBoxItem Content="Подтверждена"/>
+                <ComboBoxItem Content="Выполнена"/>
+                <ComboBoxItem Content="Отменена"/>
+            </ComboBox>
+
+            <Button Content="Сохранить изменения" Click="BtnSave_Click" Width="250"/>
+            <Button Content="Отмена" Click="BtnCancel_Click" Width="250"/>
+        </StackPanel>
     </Grid>
 </Page>
