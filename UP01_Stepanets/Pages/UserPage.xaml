@@ -6,9 +6,64 @@
       xmlns:local="clr-namespace:UP01_Stepanets.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="UserPage">
+      Title="Личный кабинет">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="TxtUserInfo" FontWeight="Bold" VerticalAlignment="Center" Margin="5,0"/>
+
+            <Button Content="Выйти из аккаунта" Grid.Column="1" Click="BtnLogout_Click"/>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Label Content="Поиск:" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBox x:Name="TbSearch" Width="200" Margin="5" ToolTip="Поиск по названию услуги" TextChanged="TbSearch_TextChanged"/>
+
+            <Label Content="Категория:" VerticalAlignment="Center" Margin="5,0"/>
+            <ComboBox x:Name="CbCategory" Width="150" Margin="5" ToolTip="Фильтр по категории" SelectionChanged="CbFilter_SelectionChanged"/>
+
+            <Label Content="Мастер:" VerticalAlignment="Center" Margin="5,0"/>
+            <ComboBox x:Name="CbMaster" Width="150" Margin="5" ToolTip="Фильтр по мастеру" SelectionChanged="CbFilter_SelectionChanged"/>
+
+            <Label Content="Сортировка:" VerticalAlignment="Center" Margin="5,0"/>
+            <ComboBox x:Name="CbSort" Width="150" Margin="5" ToolTip="Сортировка" SelectionChanged="CbFilter_SelectionChanged" SelectedIndex="0">
+                <ComboBoxItem Content="По дате (новые)"/>
+                <ComboBoxItem Content="По дате (старые)"/>
+                <ComboBoxItem Content="По цене (возр.)"/>
+                <ComboBoxItem Content="По цене (убыв.)"/>
+            </ComboBox>
+
+            <Button Content="Сбросить" Click="BtnReset_Click"/>
+            <Button Content="Сменить пароль" Click="BtnChangePass_Click" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" x:Name="DgAppointments" AutoGenerateColumns="False" IsReadOnly="True" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата" Binding="{Binding appointmentDate, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}" Width="*"/>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding service.name}" Width="*"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding service.service_category.name}" Width="*"/>
+                <DataGridTextColumn Header="Мастер" Binding="{Binding users1.FIO}" Width="*"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding service.price, StringFormat='{}{0} руб.'}" Width="*"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding status}" Width="*"/>
+                <DataGridTemplateColumn Header="Действие" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Отменить" Click="BtnCancel_Click" Tag="{Binding ID}" Margin="5"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

@@ -18,5 +18,6 @@ namespace UP01_Stepanets
             }
             return _context;
         }
+        public static users CurrentUser { get; set; }
     }
 }
