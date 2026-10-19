@@ -6,9 +6,30 @@
       xmlns:local="clr-namespace:UP01_Stepanets.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ExportPage">
+      Title="Экспорт отчетов">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="← Назад в меню" Click="BtnBack_Click"/>
+            <Button Content="Экспорт в Excel (.xlsx)" Click="BtnExportExcel_Click"/>
+            <Button Content="Экспорт в Word (.docx)" Click="BtnExportWord_Click"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" x:Name="DgAppointments" AutoGenerateColumns="False" IsReadOnly="True" Margin="10" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата и время" Binding="{Binding appointmentDate, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}" Width="*"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding users.FIO, TargetNullValue='Не указан'}" Width="*"/>
+                <DataGridTextColumn Header="Мастер" Binding="{Binding users1.FIO, TargetNullValue='Не указан'}" Width="*"/>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding service.name, TargetNullValue='Не указана'}" Width="*"/>
+                <DataGridTextColumn Header="Цена (руб.)" Binding="{Binding service.price, StringFormat='{}{0}'}" Width="*"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding status}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Page>
