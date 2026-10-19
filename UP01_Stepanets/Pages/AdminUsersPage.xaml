@@ -6,9 +6,48 @@
       xmlns:local="clr-namespace:UP01_Stepanets.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AdminUsersPage">
+      Title="Управление пользователями">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content=" + Добавить пользователя" Click="BtnAdd_Click"/>
+            <Button Content="Редактировать" Click="BtnEdit_Click"/>
+            <Button Content="Удалить выбранное" Click="BtnDelete_Click" Background="#DD4B42"/>
+            <Button Content="← Назад в меню" Click="BtnBack_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Label Content="Поиск:" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBox x:Name="TbSearch" Width="200" Margin="5" ToolTip="Поиск по ФИО или логину" TextChanged="TbSearch_TextChanged"/>
+
+            <Label Content="Роль:" VerticalAlignment="Center" Margin="5,0"/>
+            <ComboBox x:Name="CbRole" Width="150" Margin="5" SelectionChanged="CbFilter_SelectionChanged"/>
+
+            <Label Content="Сортировка:" VerticalAlignment="Center" Margin="5,0"/>
+            <ComboBox x:Name="CbSort" Width="150" Margin="5" SelectionChanged="CbFilter_SelectionChanged">
+                <ComboBoxItem Content="По ФИО (А-Я)"/>
+                <ComboBoxItem Content="По ФИО (Я-А)"/>
+                <ComboBoxItem Content="По дате регистрации"/>
+            </ComboBox>
+
+            <Button Content="Сбросить" Click="BtnReset_Click"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" x:Name="DgUsers" AutoGenerateColumns="False" IsReadOnly="True" Margin="10" SelectionMode="Extended">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}" Width="2*"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding phone}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding email}" Width="*"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding login}" Width="*"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding role.name, TargetNullValue='Не указана'}" Width="*"/>
+                <DataGridTextColumn Header="Дата регистрации" Binding="{Binding createdAt, StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

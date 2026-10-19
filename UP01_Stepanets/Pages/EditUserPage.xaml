@@ -6,9 +6,34 @@
       xmlns:local="clr-namespace:UP01_Stepanets.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EditUserPage">
+      Title="Редактирование пользователя">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="500">
+        <StackPanel>
+            <TextBlock x:Name="TxtTitle" Text="Добавление пользователя" FontSize="24" FontWeight="Bold" 
+                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <Label Content="ФИО:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TbFio" Margin="0,0,0,15" ToolTip="Введите ФИО полностью (минимум 5 символов, только буквы и пробел)"/>
+
+            <Label Content="Телефон:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TbPhone" Margin="0,0,0,15" ToolTip="Введите телефон в формате +7 (999) 123-45-67" MaxLength="16"/>
+
+            <Label Content="Email:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TbEmail" Margin="0,0,0,15" ToolTip="Введите корректный email (например, user@mail.ru)"/>
+
+            <Label Content="Логин:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TbLogin" Margin="0,0,0,15" ToolTip="Придумайте уникальный логин"/>
+
+            <Label Content="Роль:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="CbRole" Margin="0,0,0,15" DisplayMemberPath="name" SelectedValuePath="ID" ToolTip="Выберите роль пользователя (Клиент или Мастер)"/>
+
+            <Label Content="Пароль:" Margin="0,0,0,5"/>
+            <PasswordBox x:Name="PbPassword" Margin="0,0,0,5" ToolTip="Минимум 6 символов, только английские буквы и хотя бы одна цифра. Оставьте пустым при редактировании, чтобы не менять пароль."/>
+            <TextBlock x:Name="TxtPassHint" Text="(Оставьте пустым, чтобы сохранить старый пароль)" FontSize="12" Foreground="#888888" Margin="0,0,0,15"/>
+
+            <Button Content="Сохранить" Click="BtnSave_Click" Width="250"/>
+            <Button Content="Отмена" Click="BtnCancel_Click" Width="250"/>
+        </StackPanel>
     </Grid>
 </Page>
