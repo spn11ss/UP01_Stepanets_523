@@ -6,9 +6,34 @@
       xmlns:local="clr-namespace:UP01_Stepanets.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="RegPage">
+      Title="Регистрация">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="450">
+        <StackPanel>
+
+            <TextBlock Text="Регистрация нового клиента" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <Label Content="ФИО:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TbFio" ToolTip="Введите ваше ФИО полностью (только буквы)" Margin="0,0,0,15"/>
+
+            <Label Content="Телефон:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TbPhone" ToolTip="Введите телефон в формате +7 (999) 123-45-67" MaxLength="16" Margin="0,0,0,15"/>
+
+            <Label Content="Email:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TbEmail" ToolTip="Введите корректный email (например, user@mail.ru)" Margin="0,0,0,15"/>
+
+            <Label Content="Логин:" Margin="0,0,0,5"/>
+            <TextBox x:Name="TbLogin" ToolTip="Придумайте уникальный логин" Margin="0,0,0,15"/>
+
+            <Label Content="Пароль:" Margin="0,0,0,5"/>
+            <PasswordBox x:Name="PbPassword" ToolTip="Минимум 6 символов, только английские буквы и хотя бы одна цифра" Margin="0,0,0,15"/>
+
+            <Label Content="Повторите пароль:" Margin="0,0,0,5"/>
+            <PasswordBox x:Name="PbPasswordConfirm" ToolTip="Повторите введенный пароль" Margin="0,0,0,20"/>
+
+            <Button Content="Зарегистрироваться" Click="BtnRegister_Click" Width="250"/>
+            <Button Content="Отмена" Click="BtnCancel_Click" Width="250"/>
+
+        </StackPanel>
     </Grid>
 </Page>
