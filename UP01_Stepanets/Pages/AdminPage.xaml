@@ -6,9 +6,23 @@
       xmlns:local="clr-namespace:UP01_Stepanets.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AdminPage">
+      Title="Панель администратора">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <TextBlock Text="Панель администратора" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,40"/>
+
+            <Button Content="Управление записями" Click="BtnAppointments_Click" Width="300" />
+
+            <Button Content="Управление пользователями" Click="BtnUsers_Click" Width="300" />
+
+            <Button Content="Диаграмма" Click="BtnDiagram_Click" Width="300" />
+
+            <Button Content="Экспорт отчетов" Click="BtnExport_Click" Width="300" />
+
+            <Button Content="Выйти из аккаунта" Click="BtnLogout_Click" Width="300" Background="Transparent"/>
+
+        </StackPanel>
     </Grid>
 </Page>

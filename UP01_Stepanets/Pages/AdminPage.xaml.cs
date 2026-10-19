@@ -24,5 +24,43 @@ namespace UP01_Stepanets.Pages
         {
             InitializeComponent();
         }
+
+        private void BtnAppointments_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.NavigationFrame.Navigate(new AdminAppointmentsPage());
+            MainWindow.Instance.UpdatePageTitle("Управление записями");
+        }
+
+        private void BtnUsers_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.NavigationFrame.Navigate(new AdminUsersPage());
+            MainWindow.Instance.UpdatePageTitle("Управление пользователями");
+        }
+
+
+        private void BtnDiagram_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.NavigationFrame.Navigate(new DiagramPage());
+            MainWindow.Instance.UpdatePageTitle("Диаграмма записей");
+        }
+
+        private void BtnExport_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.NavigationFrame.Navigate(new ExportPage());
+            MainWindow.Instance.UpdatePageTitle("Экспорт отчетов");
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Вы действительно хотите выйти из аккаунта?",
+                "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Core.CurrentUser = null;
+                MainWindow.NavigationFrame.Navigate(new AuthPage());
+                MainWindow.Instance.UpdatePageTitle("Авторизация");
+            }
+        }
     }
 }
