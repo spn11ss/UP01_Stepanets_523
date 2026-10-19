@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UP01_Stepanets"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Салон красоты и SPA-центр" 
+        Height="600" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Style="{StaticResource HeaderGridStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="TxtPageTitle" Text="Авторизация" HorizontalAlignment="Center" Margin="150,0,0,0" Grid.Column="0" Style="{StaticResource HeaderTextBlockStyle}"/>
+
+            <Button x:Name="BtnTheme" Content="Сменить тему" Grid.Column="1" HorizontalAlignment="Right" Height="35" Width="130" Click="BtnTheme_Click"/>
+        </Grid>
+
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+
+        <Grid Grid.Row="2" Style="{StaticResource FooterGridStyle}">
+            <TextBlock x:Name="DateTimeNow" Style="{StaticResource FooterTextBlockStyle}" Margin="0,0,20,0"/>
+        </Grid>
     </Grid>
 </Window>
